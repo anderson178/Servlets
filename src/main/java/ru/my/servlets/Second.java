@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/second")
-public class SecondServlet extends HttpServlet {
+public class Second extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("name", "Vlad");

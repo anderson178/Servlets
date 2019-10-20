@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @WebServlet("/")
-public class MainServlet extends HttpServlet {
+public class Main extends HttpServlet {
     private static int count = 0;
     public static ProductDAO productDAO = new ProductDAO();
 
@@ -31,6 +31,7 @@ public class MainServlet extends HttpServlet {
         req.setAttribute("nameButtonMoveDown", "Move down");
         req.setAttribute("nameButtonMoveUp", "Move up");
         req.setAttribute("nameButtonRemove", "Remove");
+        //TODO использвать ajax (при необходимости во всех сервлетах)
         count++;
         req.getRequestDispatcher("mypage.jsp").forward(req, resp);
     }

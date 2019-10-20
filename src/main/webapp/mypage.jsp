@@ -23,7 +23,6 @@
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${products}" var="product">
             <form>
                 <tr>
@@ -42,10 +41,8 @@
                                 formaction="<c:url value="/remove?position=${product.position}&name=${product.name}"/>"
                                 class="btn btn-primary">Remove
                         </button>
-
                     </td>
                 </tr>
-            <%--</form>--%>
         </c:forEach>
         </tbody>
     </table>

@@ -15,7 +15,7 @@ public class MoveUp extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer position = Integer.parseInt( req.getParameter("position"));
         String name = req.getParameter("name");
-        MainServlet.productDAO.moveUp(new Product(position, name));
-        new MainServlet().doGet(req, resp);
+        Main.productDAO.moveUp(new Product(position, name));
+        new Main().doGet(req, resp);
     }
 }

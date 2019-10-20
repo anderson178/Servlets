@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/sort")
-public class SortServlets extends HttpServlet {
+public class Sort extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        MainServlet.productDAO.sort();
-        new MainServlet().doGet(req,resp);
+        Main.productDAO.sort();
+        new Main().doGet(req,resp);
     }
 }

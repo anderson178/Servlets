@@ -36,15 +36,15 @@
         </tr>
         </c:forEach>
     </table>
-    <form method="post" action="<c:url value="/add"/>">
+    <form>
         <div class="form-group">
             <label for="position">${firstColName}</label>
-            <input type="text" class="form-control" id="position" name="position" required>
+            <input type="text" class="form-control" id="position" name="position">
             <label for="name">${secondColName}</label>
             <input type="text" class="form-control" id="name" name="name">
         </div>
-        <button type="submit" id="add" class="btn btn-primary">${nameButtonAdd}</button>
-        <button type="submit" id="sort" class="btn btn-primary">${nameButtonSort}</button>
+        <button formmethod="post" formaction="<c:url value="/add"/>" type="submit" id="add" class="btn btn-primary">${nameButtonAdd}</button>
+        <button formmethod="get" formaction="<c:url value="/sort"/>" type="submit" id="sort" class="btn btn-primary">${nameButtonSort}</button>
     </form>
 </div>
 </body>

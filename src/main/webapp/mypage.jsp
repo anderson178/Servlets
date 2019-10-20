@@ -21,20 +21,33 @@
             <th>${secondColName}</th>
             <th>${thirdColName}</th>
         </tr>
-
         </thead>
         <tbody>
+
         <c:forEach items="${products}" var="product">
-        <tr>
-            <td>${product.position}</td>
-            <td>${product.name}</td>
-            <td>
-                <button type="submit" id="moveDown_${product.position}" class="btn btn-primary">Move down</button>
-                <button type="submit" id="moveUp_' + ${product.position} + '" class="btn btn-primary" >Move up</button>
-                <button type="submit" id="remove_' + ${product.position} + '" class="btn btn-primary">Remove</button>
-            </td>
-        </tr>
+            <form>
+                <tr>
+                    <td>${product.position}</td>
+                    <td>${product.name}</td>
+                    <td>
+                        <button type="submit" formmethod="post"
+                                formaction="<c:url value="/moveDown?position=${product.position}&name=${product.name}"/>"
+                                class="btn btn-primary">Move down
+                        </button>
+                        <button type="submit" formmethod="post"
+                                formaction="<c:url value="/moveUp?position=${product.position}&name=${product.name}"/>"
+                                class="btn btn-primary">Move up
+                        </button>
+                        <button type="submit" formmethod="post"
+                                formaction="<c:url value="/remove?position=${product.position}&name=${product.name}"/>"
+                                class="btn btn-primary">Remove
+                        </button>
+
+                    </td>
+                </tr>
+            <%--</form>--%>
         </c:forEach>
+        </tbody>
     </table>
     <form>
         <div class="form-group">
@@ -43,8 +56,10 @@
             <label for="name">${secondColName}</label>
             <input type="text" class="form-control" id="name" name="name">
         </div>
-        <button formmethod="post" formaction="<c:url value="/add"/>" type="submit" id="add" class="btn btn-primary">${nameButtonAdd}</button>
-        <button formmethod="get" formaction="<c:url value="/sort"/>" type="submit" id="sort" class="btn btn-primary">${nameButtonSort}</button>
+        <button formmethod="post" formaction="<c:url value="/add"/>" type="submit" id="add"
+                class="btn btn-primary">${nameButtonAdd}</button>
+        <button formaction="<c:url value="/sort"/>" type="submit" id="sort"
+                class="btn btn-primary">${nameButtonSort}</button>
     </form>
 </div>
 </body>

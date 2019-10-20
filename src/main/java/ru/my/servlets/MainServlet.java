@@ -1,6 +1,7 @@
 package ru.my.servlets;
 
 import ru.my.model.Product;
+import ru.my.model.ProductDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,12 +15,14 @@ import java.util.List;
 
 @WebServlet("/")
 public class MainServlet extends HttpServlet {
+    private static int count = 0;
+    public static ProductDAO productDAO = new ProductDAO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> products = new ArrayList<>(Arrays.asList(new Product(1, "Milk")
-                , new Product(2, "Chocolate"), new Product(3, "Bear")));
-        req.setAttribute("products", products);
+//        List<Product> products = new ArrayList<>(Arrays.asList(new Product(1, "Milk")
+//                , new Product(2, "Chocolate"), new Product(3, "Bear")));
+        req.setAttribute("products", productDAO.getList());
         req.setAttribute("firstColName", "Position");
         req.setAttribute("secondColName", "Name");
         req.setAttribute("thirdColName", "Action");
@@ -28,6 +31,9 @@ public class MainServlet extends HttpServlet {
         req.setAttribute("nameButtonMoveDown", "Move down");
         req.setAttribute("nameButtonMoveUp", "Move up");
         req.setAttribute("nameButtonRemove", "Remove");
+        count++;
         req.getRequestDispatcher("mypage.jsp").forward(req, resp);
     }
+
+
 }

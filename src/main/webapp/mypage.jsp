@@ -29,14 +29,14 @@
             <td>${product.position}</td>
             <td>${product.name}</td>
             <td>
-                <button type="submit" id="moveDown_' + ${product.position} + '" class="btn btn-primary">Move down</button>
+                <button type="submit" id="moveDown_${product.position}" class="btn btn-primary">Move down</button>
                 <button type="submit" id="moveUp_' + ${product.position} + '" class="btn btn-primary" >Move up</button>
                 <button type="submit" id="remove_' + ${product.position} + '" class="btn btn-primary">Remove</button>
             </td>
         </tr>
         </c:forEach>
     </table>
-    <form>
+    <form method="post" action="<c:url value="/add"/>">
         <div class="form-group">
             <label for="position">${firstColName}</label>
             <input type="text" class="form-control" id="position" name="position" required>
